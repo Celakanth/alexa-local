@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "ask-sdk": "^2.5.2",
-    "ask-sdk-core": "^2.5.2"
+    "ask-sdk-core": "^2.5.2",
+    "ask-sdk-v1adapter": "^2.5.2"
   },
   "devDependencies": {
     "alexa-skill-local": "^1.3.0"
