@@ -8,7 +8,6 @@ const LaunchRequestHandler = {
     },
     handle(handlerInput) {
       const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
-  
       return handlerInput.responseBuilder
         .speak(speechText)
         .reprompt(speechText)
@@ -23,8 +22,9 @@ const LaunchRequestHandler = {
         && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
     },
     handle(handlerInput) {
+      console.log('I am in an error trap');
       const speechText = 'Hello World!';
-  
+
       return handlerInput.responseBuilder
         .speak(speechText)
         .withSimpleCard('Hello World', speechText)
@@ -35,14 +35,14 @@ const LaunchRequestHandler = {
   const createTaskIntentHandler = {
     canHandle(handlerInput) {
          console.log(handlerInput.requestEnvelope.request.intent.slots.title.value)
-         
+
       return handlerInput.requestEnvelope.request.type === 'IntentRequest'
         && handlerInput.requestEnvelope.request.intent.name === 'createTaskIntent';
     },
     handle(handlerInput) {
         let taskTitle = handlerInput.requestEnvelope.request.intent.slots.title.value;
       const speechText = 'I have created the task named ' + taskTitle;
-  
+
       return handlerInput.responseBuilder
         .speak(speechText)
         .withSimpleCard('Created Task', speechText)
@@ -59,7 +59,7 @@ const LaunchRequestHandler = {
     },
     handle(handlerInput) {
       const speechText = 'You can say hello to me!';
-  
+
       return handlerInput.responseBuilder
         .speak(speechText)
         .reprompt(speechText)
@@ -76,7 +76,7 @@ const LaunchRequestHandler = {
     },
     handle(handlerInput) {
       const speechText = 'Goodbye!';
-  
+
       return handlerInput.responseBuilder
         .speak(speechText)
         .withSimpleCard('Hello World', speechText)
@@ -100,7 +100,7 @@ const LaunchRequestHandler = {
     },
     handle(handlerInput, error) {
       console.log(`Error handled: ${error.message}`);
-  
+
       return handlerInput.responseBuilder
         .speak('Sorry, I can\'t understand the command. Please say again.')
         .reprompt('Sorry, I can\'t understand the command. Please say again.')
